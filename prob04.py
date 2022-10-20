@@ -9,15 +9,18 @@ for i in range(20):
 
 print(f'a = {a}')
 
-b = []
+# b = []
 with open('04.dat', 'r') as f:
-    for s in f:
-        n = int(s)
-        b.append(n)
+    # for s in f:
+    #     n = int(s)
+    #     b.append(n)
+    
+    b = f.read().split()
+    b = list(map(int, b))
 
 print(f'b = {b}\n')
 
-# リストを結合
+# 2つのリストを結合
 c = a + b
 
 # リストの中身を昇順にソート
