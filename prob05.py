@@ -5,16 +5,16 @@ with open('05.dat', 'r', encoding='utf-8') as f:
     str = f.read().split()
 
 # 元の文字列
+print('-------')
 for x in str:
     print(x)
-print('\n', end='')
+print('-------\n')
 
 entry = input('>>> 置換前部分文字列と置換後文字列を入力: ')
 print('\n', end='')
-order = entry.split()
+before, after = entry.split()
 
-before = order[0]   # 置換前部分文字列
-after = order[1]    # 置換後文字列
+print('\n*******')
 
 # 置換対象の文字列を表示
 for x in str:
