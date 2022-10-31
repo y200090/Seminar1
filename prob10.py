@@ -6,8 +6,8 @@ words = ['机', '本', '机', '机', '本', '学校', '大学']
 unduplicated_words = list(set(words))
 
 appearance = []
-for str in unduplicated_words:
-    cnt = words.count(str)
+for word in unduplicated_words:
+    cnt = words.count(word)
     appearance.append(cnt)
 
 # 2つのリストを辞書に変換
