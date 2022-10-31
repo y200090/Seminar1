@@ -14,8 +14,8 @@ unduplicated_words = list(unduplicated_words)
 
 # unduplicated_words = sorted(set(words), key=words.index)
 
-for i, str in enumerate(unduplicated_words, 1):
+for i, word in enumerate(unduplicated_words, 1):
     if i == len(unduplicated_words):
-        print(f'{str}')
+        print(f'{word}')
     else:
-        print(f'{str}', end=',')
+        print(f'{word}', end=',')
