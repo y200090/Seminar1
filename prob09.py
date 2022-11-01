@@ -4,9 +4,9 @@ words = ['机', '本', '机', '机', '本', '学校', '大学']
 
 # 重複した要素を削除したset型のオブジェクトを作成
 unduplicated_words = set(words)
-print(unduplicated_words)
-print('\n', end='')
+print(f'{unduplicated_words}\n')
 
+# リスト化
 unduplicated_words = list(unduplicated_words)
 
 # dict_words = dict.fromkeys(words)
