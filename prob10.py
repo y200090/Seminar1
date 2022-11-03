@@ -1,22 +1,15 @@
 # ===============課題10 11/3===============
 
-from collections import Counter
+# from collections import Counter
 
 words = ['机', '本', '机', '机', '本', '学校', '大学']
 
-# 重複した要素を持たないリストを作成
-unduplicated_words = list(set(words))
+dict_words = {}
 
-appearance = []
-for word in unduplicated_words:
-    # 要素の出現回数を取得
-    apcount = words.count(word)
-    appearance.append(apcount)
+for x in words:
+    dict_words[x] = words.count(x)
 
-# 2つのリストを辞書に変換
-dict_words = dict(zip(unduplicated_words, appearance))
-print(dict_words)
-print('\n', end='')
+print(f'{dict_words}\n')
 
 # # キーに要素、値に出現回数を持つCounterオブジェクト(dictのサブクラス)を作成
 # dict_words = Counter(words)
