@@ -5,13 +5,13 @@ sentence = '''
 {1}さん
 こんにちは！'''
 
-datas = []
 with open('08a.dat', 'r', encoding='utf-8') as f:
     for line in f:
         dic = {}
         key, value = line.split()
         print(sentence.format('\033[31m' + key + '\033[0m', '\033[31m' + value + '\033[0m'))
 
+# datas = []
 # for data in datas:
 #     sentence = '''
 #     龍谷大学先端理工学部X課程

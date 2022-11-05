@@ -1,11 +1,5 @@
 # ===============正規表現 11/10===============
 
-# print(re.match('a\\b', 'a\\b'))
-# print(re.match(r'a\\b', 'a\\b'))  # パターンにrを付ける
-# print(re.match('a\\\\b', 'a\\b')) # パターンにエスケープ記号使用
-
-# print(re.match(r'\w+\\\w+', 'abcd\\efghij')) 
-
 import csv
 
 filename = 'dummy.csv'
