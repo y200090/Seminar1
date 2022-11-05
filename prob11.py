@@ -2,7 +2,7 @@
 
 # ファイルからデータをリストに読み込む関数
 def rd(fname, x):
-    with open(fname, 'r', encoding='utf-8') as f:
+    with open(f'data/{fname}', 'r', encoding='utf-8') as f:
         for line in f:
             x.append(line.rstrip())
     return len(x)

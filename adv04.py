@@ -1,7 +1,7 @@
 # ===============発展04===============
 
 a = []
-with open('04-adv.dat', 'r') as f:
+with open('data/04-adv.dat', 'r') as f:
     # 2次元配列に読み込む
     for s in f:
         a.append(s.split())

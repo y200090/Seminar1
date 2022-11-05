@@ -1,6 +1,6 @@
 # ===============課題5 10/20===============
 
-with open('05.dat', 'r', encoding='utf-8') as f:
+with open('data/05.dat', 'r', encoding='utf-8') as f:
     # ファイルの中身を一括で読み込み、改行文字で分割してリストに格納
     str = f.read().split()
 

@@ -18,7 +18,7 @@
 
 a = []
 sum = 0
-with open('03.dat', 'r') as f:
+with open('data/03.dat', 'r') as f:
     for s in f:
         # # 整数の値を判定
         # if is_int(s) == True:

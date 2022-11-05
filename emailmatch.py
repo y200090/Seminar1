@@ -2,7 +2,7 @@
 
 import csv
 
-filename = 'dummy.csv'
+filename = 'data/dummy.csv'
 with open(filename, 'r', encoding='utf-8') as f:
     dummy_data = csv.reader(f)
     # 先頭行を飛ばす
