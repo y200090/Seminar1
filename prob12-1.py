@@ -9,16 +9,13 @@ repattern = re.compile(pattern)
 
 for content in contents:
     print(f'文字列: {content} パターン: {pattern}\n')
-    check_match = repattern.match(content)
-    if check_match:
+
+    if repattern.match(content):
         print('Match chceck  : True')
     else:
         print('Match chceck  : False')
 
-    check_search = repattern.search(content)
-    if check_search:
-        print('Search chceck : True')
+    if repattern.search(content):
+        print('Search chceck : True\n')
     else:
-        print('Search chceck : False')
-    
-    print('\n', end='')
+        print('Search chceck : False\n')

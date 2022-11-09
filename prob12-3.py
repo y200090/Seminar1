@@ -10,12 +10,12 @@ while True:
     content = input('>>> ')
 
     if content == '':
-        print('プログラムを終了します。')
+        print('>>> プログラムを終了します。')
         exit()
 
     print('>>> 英文字で始まるか：', end='')
-    check = repattern.match(content)
-    if check:
+
+    if repattern.match(content):
         print('yes\n')
     else:
         print('no\n')

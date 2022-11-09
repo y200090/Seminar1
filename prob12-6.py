@@ -10,12 +10,12 @@ while True:
     content = input('>>> ')
 
     if content == '':
-        print('プログラムを終了します。')
+        print('>>> プログラムを終了します。')
         exit()
 
     print('>>> 1文字以上4文字以下の英数字とアンダースコアのみで構成されているか：', end='')
-    check = repattern.fullmatch(content)
-    if check:
+
+    if repattern.fullmatch(content):
         print('yes\n')
     else:
         print('no\n')
