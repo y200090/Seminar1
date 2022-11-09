@@ -5,6 +5,7 @@ def rd(fname, x):
     with open(f'data/{fname}', 'r', encoding='utf-8') as f:
         for line in f:
             x.append(line.rstrip())
+            
     return len(x)
 
 # 二つのリストを併合してリストに格納する関数
@@ -21,11 +22,11 @@ for fname, x in zip(filename, [a, b]):
     num = rd(fname, x)
     print(f'ファイル"{fname}"から・・・\n{num}: {x}\n')
 
-c = proc(a, b)
-print(f'併合リスト:\n{c}\n')
+d = proc(a, b)
+print(f'併合リスト:\n{d}\n')
 
 print('併合リストの各要素:')
-# for d in c:
+# for d in d:
 #     print(f'{d}', end=' ')
 # print('\n', end='')
-print(' '.join(list(map(str, c))))
+print(' '.join(list(map(str, d))))
