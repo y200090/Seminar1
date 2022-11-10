@@ -18,7 +18,7 @@ while True:
     if entry == '':
         # プログラム終了
         print('>>> Enterキーが押されました。プログラムを終了します。')
-        exit()
+        break
     
     print('\n', end='')
     order = entry.split()

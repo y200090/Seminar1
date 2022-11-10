@@ -11,7 +11,7 @@ while True:
 
     if content == '':
         print('>>> プログラムを終了します。')
-        exit()
+        break
 
     print('>>> 1文字以上4文字以下の英数字とアンダースコアのみで構成されているか：', end='')
 

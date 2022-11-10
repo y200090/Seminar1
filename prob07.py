@@ -27,7 +27,7 @@ while True:
     if entry == 'q' or entry == 'ｑ' or entry == '':
     # if entry == 'q' or entry == '':
         print('>>> プログラムを終了します。')
-        exit()
+        break
 
     else:
         # 検索処理

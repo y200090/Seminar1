@@ -11,7 +11,7 @@ while True:
 
     if content == '':
         print('>>> プログラムを終了します。')
-        exit()
+        break
 
     print('>>> 英文字で始まるか：', end='')
 
