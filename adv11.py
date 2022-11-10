@@ -25,8 +25,7 @@ for fname, x in zip(filename, [a, b]):
 d = proc(a, b)
 print(f'併合リスト:\n{d}\n')
 
-print('併合リストの各要素:')
+print('併合リストの各要素:\n' + ' '.join(list(map(str, d))))
 # for d in d:
 #     print(f'{d}', end=' ')
 # print('\n', end='')
-print(' '.join(list(map(str, d))))
