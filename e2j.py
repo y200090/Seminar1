@@ -24,12 +24,7 @@ while True:
 
     print('--------------------')
 
-    result = None
     for result in results:
         print(result.group(1))
-        
-    # パターンマッチしなかった場合
-    if result is None:
-        print(result)
     
     print('--------------------\n')
