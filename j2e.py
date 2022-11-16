@@ -15,9 +15,10 @@ while True:
         print('>>> プログラムを終了します。')
         break
         
-    print('--------------------')
+    results = re.finditer(f'^{word}\t.\t(.*)$', content, re.MULTILINE)
 
-    results = re.finditer(f'^{word}\t.\t(.*)', content, re.MULTILINE)
+    print('--------------------')
+    
     result = None
     for result in results:
         print(result.group(1))
