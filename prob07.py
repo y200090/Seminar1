@@ -9,7 +9,7 @@
 #     return re.match(r'^[^\x01-\x7E]+$', value) is not None
 
 dic = {}
-with open('data/07.dat', 'r', encoding='utf-8') as f:
+with open('assets/07.dat', 'r', encoding='utf-8') as f:
     for line in f:
         key, value = line.split()
         dic[key] = value

@@ -10,7 +10,7 @@ for i in range(20):
 print(f'a = {a}')
 
 # b = []
-with open('data/04.dat', 'r') as f:
+with open('assets/04.dat', 'r') as f:
     # for s in f:
     #     n = int(s)
     #     b.append(n)

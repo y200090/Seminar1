@@ -2,7 +2,7 @@
 
 import re
 
-with open('data/14.dat', 'r', encoding='utf-8') as f:
+with open('assets/14.dat', 'r', encoding='utf-8') as f:
     content = f.read()
 
 result = dict(re.findall('([a-zA-Z]+):(\d+)', content))

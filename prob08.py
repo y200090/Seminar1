@@ -5,7 +5,7 @@ sentence = '''
 {1}さん
 こんにちは！'''
 
-with open('data/08a.dat', 'r', encoding='utf-8') as f:
+with open('assets/08a.dat', 'r', encoding='utf-8') as f:
     for line in f:
         dic = {}
         key, value = line.split()

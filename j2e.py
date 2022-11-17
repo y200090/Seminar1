@@ -3,7 +3,7 @@
 
 import csv, re
 
-with open('data/je_sys.tsv', 'r', encoding='utf-8') as f:
+with open('assets/je_sys.tsv', 'r', encoding='utf-8') as f:
     # data = csv.reader(f, delimiter='\t')
     # content = ''
     # for line in data:
