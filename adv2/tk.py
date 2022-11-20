@@ -1,9 +1,38 @@
 import tkinter as tk
 from tkinter import ttk
+import re
+
+with open('../assets/je_sys.tsv', 'r', encoding='utf-8') as f:
+    je_sys_data = f.read()
+
+with open('../assets/ej_sys.tsv', 'r', encoding='utf-8') as f:
+    ej_sys_data = f.read()
 
 class Application(tk.Frame):
     def select_dict(self, event):
-        print(self.pulldown_menu.get())
+        if self.pulldown_menu.get() == '英和':
+            self.content = ej_sys_data
+        elif self.pulldown_menu.get() == '和英':
+            self.content = tk.StringVar(value=je_sys_data)
+
+    def search_dict(self, event):
+        if self.pulldown_menu.get() == '英和':
+            pattern1 = re.compile('([.+*?$^\-/(){|}\[\]\\\])')
+            words = pattern1.sub(r'\\\1', self.search_text.get())
+            pattern2 = re.compile(f'{words}\t.\t(.*)', re.MULTILINE)
+            results = pattern2.finditer(self.content)
+
+        elif self.pulldown_menu.get() == '和英':
+            pattern = re.compile(f'{self.search_text.get()}\t.\t(.*)', re.MULTILINE)
+            results = pattern.finditer(self.content)
+
+        conclude = ''
+        result = None
+        for result in results:
+            conclude += result.group(1) + '\n'
+        if result is None:
+            conclude = 'Not Found!'
+        self.textbox.insert(1.0, conclude)
     
     def __init__(self, master):
         super().__init__(master)
@@ -14,6 +43,7 @@ class Application(tk.Frame):
         self.widgets()
 
     def widgets(self):
+        self.content = ej_sys_data
         self.font1 =('', 18)
         self.font2 = ('', 16)
         pulldown_menu_style = ttk.Style()
@@ -27,12 +57,13 @@ class Application(tk.Frame):
         # オプション選択
         self.pulldown_menu = ttk.Combobox(self.frame1, state='readonly', values=('英和', '和英'), width=4, height=32, font=self.font1, style='option.TCombobox')
         self.pulldown_menu.pack(side=tk.LEFT, ipady=2)
-        self.pulldown_menu.set('英和')
         self.pulldown_menu.bind('<<ComboboxSelected>>', self.select_dict)
+        self.pulldown_menu.set('英和')
 
         # 検索バー
         self.search_text = tk.Entry(self.frame1, font=self.font1, width=30, relief=tk.SOLID, bd=1)
         self.search_text.pack(side=tk.LEFT, ipady=3)
+        self.search_text.bind('<Return>', self.search_dict)
 
         # 削除ボタン
         self.clear_icon = tk.PhotoImage(file='../assets/close_icon.png').subsample(2, 2)
