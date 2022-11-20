@@ -29,7 +29,7 @@ class Application(tk.Frame):
         conclude = ''
         result = None
         for result in results:
-            conclude += result.group(1) + '\n'
+            conclude += result.group(1) + ' / '
         if result is None:
             conclude = 'Not Found!'
         self.textbox.insert(1.0, conclude)
