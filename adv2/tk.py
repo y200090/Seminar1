@@ -1,20 +1,36 @@
 import tkinter as tk
+from tkinter import ttk
 
 class Application(tk.Frame):
+    def select_dict(self, event):
+        print(self.pulldown_menu.get())
+    
     def __init__(self, master):
         super().__init__(master)
         master.title('英和・和英辞書')
-        master.geometry('900x500')
+        master.geometry('900x520')
         master.resizable(width=False, height=False)
 
         self.widgets()
 
     def widgets(self):
+        self.font1 =('', 18)
+        self.font2 = ('', 16)
+        pulldown_menu_style = ttk.Style()
+        pulldown_menu_style.theme_use('vista')
+        pulldown_menu_style.configure('option.TCombobox')
+
         # フレーム1
         self.frame1 = tk.Frame(self.master, width=900, height=30)
         self.frame1.pack(side=tk.TOP, padx=51, pady=40, fill=tk.BOTH)
 
-        self.font1 =('', 18)
+        # オプション選択
+        self.pulldown_menu = ttk.Combobox(self.frame1, state='readonly', values=('英和', '和英'), width=4, height=32, font=self.font1, style='option.TCombobox')
+        self.pulldown_menu.pack(side=tk.LEFT, ipady=2)
+        self.pulldown_menu.set('英和')
+        self.pulldown_menu.bind('<<ComboboxSelected>>', self.select_dict)
+
+        # 検索バー
         self.search_text = tk.Entry(self.frame1, font=self.font1, width=30, relief=tk.SOLID, bd=1)
         self.search_text.pack(side=tk.LEFT, ipady=3)
 
@@ -37,7 +53,6 @@ class Application(tk.Frame):
         self.frame2 = tk.Frame(self.master, width=900)
         self.frame2.pack(side=tk.TOP, padx=30)
 
-        self.font2 = ('', 16)
         self.textbox = tk.Text(self.frame2, font=self.font2, width=72, height=17, relief=tk.SOLID, bd=1)
         self.textbox.pack(side=tk.TOP)
 
