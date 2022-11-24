@@ -9,13 +9,17 @@ with open('../assets/ej_sys.tsv', 'r', encoding='utf-8') as f:
     ej_sys_data = f.read()
 
 class Application(tk.Frame):
-    def select_dict(self, event):
+    def select_type(self, event):
         if self.pulldown_menu.get() == '英和':
             self.content = ej_sys_data
         elif self.pulldown_menu.get() == '和英':
-            self.content = tk.StringVar(value=je_sys_data)
+            # self.content = tk.StringVar(value=je_sys_data)
+            self.content = je_sys_data
 
     def search_dict(self, event):
+        self.textbox.configure(state='normal')
+        self.textbox.delete(1.0, tk.END)
+        
         if self.pulldown_menu.get() == '英和':
             pattern1 = re.compile('([.+*?$^\-/(){|}\[\]\\\])')
             words = pattern1.sub(r'\\\1', self.search_text.get())
@@ -33,6 +37,7 @@ class Application(tk.Frame):
         if result is None:
             conclude = 'Not Found!'
         self.textbox.insert(1.0, conclude)
+        self.textbox.configure(state='disable')
     
     def __init__(self, master):
         super().__init__(master)
@@ -57,7 +62,7 @@ class Application(tk.Frame):
         # オプション選択
         self.pulldown_menu = ttk.Combobox(self.frame1, state='readonly', values=('英和', '和英'), width=4, height=32, font=self.font1, style='option.TCombobox')
         self.pulldown_menu.pack(side=tk.LEFT, ipady=2)
-        self.pulldown_menu.bind('<<ComboboxSelected>>', self.select_dict)
+        self.pulldown_menu.bind('<<ComboboxSelected>>', self.select_type)
         self.pulldown_menu.set('英和')
 
         # 検索バー
@@ -70,6 +75,7 @@ class Application(tk.Frame):
         self.clear_button = tk.Button(self.frame1, image=self.clear_icon, relief=tk.FLAT, width=30, height=30)
         self.clear_button['command'] = lambda: [
             self.search_text.delete(0, tk.END),
+            self.textbox.configure(state='normal'),
             self.textbox.delete(1.0, tk.END)
         ]
         self.clear_button.pack(side=tk.LEFT)
@@ -84,9 +90,8 @@ class Application(tk.Frame):
         self.frame2 = tk.Frame(self.master, width=900)
         self.frame2.pack(side=tk.TOP, padx=30)
 
-        self.textbox = tk.Text(self.frame2, font=self.font2, width=72, height=17, relief=tk.SOLID, bd=1)
+        self.textbox = tk.Text(self.frame2, font=self.font2, width=72, height=17, relief=tk.SOLID, bd=1, state='disable')
         self.textbox.pack(side=tk.TOP)
-
 
 if __name__ == '__main__':
     root = tk.Tk()
